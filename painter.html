@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> java script with the DOM</title>
+ </head>
+<body>
+
+<h2>Painter entry Manoj Kumar Kandimalla</h2>
+
+<form>
+    <label for="form1_name">The hidden painter name</label>
+    <input type ="password" id="form1_name" name="form1_name" min=10 max=50 step=2 value="Monet"> <br>
+
+    <label for="form1_find">Guess the painter</label>
+    <input type ="text" id="form1_find" name="form1_find" autofocus> <br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+good = 0;
+oops = 0;
+
+function checkPainter(){
+    console.log("Getting form values")
+    name = document.getElementById("form1_name").value
+    find = document.getElementById("form1_find").value
+    
+    out = document.getElementById("result")
+    if(name == find){
+        good = good + 1;
+        alert("You got it right");
+        out.innerHTML = good;
+    } else {
+        oops = oops + 1;
+        alert("Sorry");
+        out.innerHTML = oops;
+    }
+}
+</script>
+
+</body>
+</html> 
