@@ -33,13 +33,44 @@ function checkPainter(){
     if(name == find){
         good = good + 1;
         alert("You got it right");
-        out.innerHTML = good;
+        out.innerHTML = "Correct answer:" + good + "Wrong answer:" + oops;
     } else {
         oops = oops + 1;
         alert("Sorry");
-        out.innerHTML = oops;
+        out.innerHTML = "Correct answer:" + good + "Wrong answer:" + oops;
     }
 }
+</script>
+
+<div class="container">
+    <img id="image" src="Danae.jpg" alt="Plants" width="100px" height="100px" onclick="selectImage()">
+</div>
+
+<script>
+    var useImage = 1;
+
+    function selectImage()
+    {
+
+        switch(useImage)
+        {
+            case 1:
+                document.getElementById("image").src="Danae.jpg";
+                useImage = 2;
+                break;
+
+            case 2:
+                document.getElementById("image").src="Iberis.jpg";
+                useImage = 3;
+                break;
+
+            default :
+                document.getElementById("image").src="Magnolia.jpg";
+                useImage = 1;
+                break;
+        }
+
+    }
 </script>
 
 </body>
