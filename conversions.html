@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>conevrsion with java script</title>
+</head>
+ 
+<body>
+
+<h2>Manoj Kumar Kandimalla shows currency conversions</h2>
+
+<form>
+    <label for="frm_amount">Enter bse amt</label>
+    <input type="number" id="frm_amount" name="frm_amount" value="50" /> <br />
+    <br />
+    <label for="frm_base">Enter the conversn rate</label>
+    <input type="number" id="frm_base" name="frm_base" value="35" /> <br />
+    <br />
+    <input type="button" onclick="convert()" value="Show conversions" />
+</form>
+
+<p id="result">This text will be replaced</p>
+
+<form>
+    <div class="form-group">
+    <input type="radio" name="action" id="mean" name="average" value="mean">
+    <label for="mean">mean</label>
+    <br>
+    <input type="radio" name="action" id="max" name="max" value="maximum">
+    <label for="max">max</label>
+    <br>
+    <input type="radio" name="action" id="min" name="min" value="minimum">
+    <label for="min">min</label>
+    <br> 
+    <br> 
+    <input type="button" class="btn btn-primary" onclick="chooseOp()" value="values from the radio group">
+</form>
+
+<p id="result2">This text will be replaced </p>
+
+<script>
+    
+    var toShow = "";
+    
+    function convert() 
+        {
+
+            ma = document.getElementById("frm_amount").value;
+            conversionrate = document.getElementById("frm_base").value;
+            km = ""
+            for (i = 1; i <= 5; i++) {
+                km = ma + " is " + Math.round(conversionrate * ma * 100) / 100 + "; " +
+                    ma * 2 + " is " + Math.round(conversionrate * ma * 2 * 100) / 100 + "; " +
+                    ma * 4 + " is " + Math.round(conversionrate * ma * 4 * 100) / 100 + "; " +
+                    ma * 8 + " is " + Math.round(conversionrate * ma * 8 * 100) / 100 + "; " +
+                    ma * 16 + " is " + Math.round(conversionrate * ma * 16 * 100) / 100 + "; "
+            }
+            out = document.getElementById("result");
+            if (km) 
+            {
+                out.innerHTML = "Conversions are: " + km
+            }
+        }
+
+    function chooseOp() 
+    {
+        var base = document.getElementById("frm_amount").value;
+        var con = document.getElementById("frm_base").value;
+        var option = document.querySelector('input[name="action"]:checked').value;
+        
+        var base1 = base;
+        if (option == "minimum") 
+        {
+            document.getElementById("result2").innerHTML = "min of " + base + " and " + con + " is " + Math.min(base, con);
+        } else if (option == "maximum") 
+        {
+            document.getElementById("result2").innerHTML = "max of " + base + " and " + con + " is " + Math.max(base, con);
+        } else if (option == "mean") 
+        {
+            document.getElementById("result2").innerHTML = "mean of " + base + " and " + con + " is " + (parseInt(base) + parseInt(con)) / 2;
+        }
+    }
+</script>
+</body>
+</html>
