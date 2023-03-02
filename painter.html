@@ -34,11 +34,18 @@ function checkPainter(){
         good = good + 1;
         alert("You got it right");
         out.innerHTML = "Correct answer:" + good + "Wrong answer:" + oops;
-    } else {
+    } 
+
+    else if (oops >= 10) {
+                document.getElementById("btn").onclick = giveAlert();
+            }
+
+    else {
         oops = oops + 1;
         alert("Sorry");
         out.innerHTML = "Correct answer:" + good + "Wrong answer:" + oops;
     }
+
 }
 </script>
 
@@ -71,6 +78,9 @@ function checkPainter(){
         }
 
     }
+    function giveAlert() {
+            alert("Sorry, ran out of guesses.");
+        }
 </script>
 
 </body>
